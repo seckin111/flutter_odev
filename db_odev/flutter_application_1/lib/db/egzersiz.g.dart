@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'routines.dart';
+part of 'egzersiz.dart';
 
 // **************************************************************************
 // IsarCollectionGenerator
@@ -9,75 +9,74 @@ part of 'routines.dart';
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters
 
-extension GetRoutinesCollection on Isar {
-  IsarCollection<Routines> get routines => this.collection();
+extension GetEgzersizCollection on Isar {
+  IsarCollection<Egzersiz> get egzersizs => this.collection();
 }
 
-const RoutinesSchema = CollectionSchema(
-  name: r'Routines',
-  id: 7965723458090298469,
+const EgzersizSchema = CollectionSchema(
+  name: r'Egzersiz',
+  id: 725125852290716376,
   properties: {
-    r'category': PropertySchema(
+    r'egzersizBolge': PropertySchema(
       id: 0,
-      name: r'category',
+      name: r'egzersizBolge',
       type: IsarType.string,
     ),
-    r'day': PropertySchema(
+    r'egzersizSaat': PropertySchema(
       id: 1,
-      name: r'day',
+      name: r'egzersizSaat',
       type: IsarType.string,
     ),
-    r'startTime': PropertySchema(
+    r'egzersizSet': PropertySchema(
       id: 2,
-      name: r'startTime',
-      type: IsarType.string,
+      name: r'egzersizSet',
+      type: IsarType.long,
     ),
-    r'title': PropertySchema(
+    r'egzersizTekrar': PropertySchema(
       id: 3,
-      name: r'title',
+      name: r'egzersizTekrar',
+      type: IsarType.long,
+    ),
+    r'egzersizTitle': PropertySchema(
+      id: 4,
+      name: r'egzersizTitle',
       type: IsarType.string,
     )
   },
-  estimateSize: _routinesEstimateSize,
-  serialize: _routinesSerialize,
-  deserialize: _routinesDeserialize,
-  deserializeProp: _routinesDeserializeProp,
+  estimateSize: _egzersizEstimateSize,
+  serialize: _egzersizSerialize,
+  deserialize: _egzersizDeserialize,
+  deserializeProp: _egzersizDeserializeProp,
   idName: r'id',
   indexes: {},
   links: {},
   embeddedSchemas: {},
-  getId: _routinesGetId,
-  getLinks: _routinesGetLinks,
-  attach: _routinesAttach,
+  getId: _egzersizGetId,
+  getLinks: _egzersizGetLinks,
+  attach: _egzersizAttach,
   version: '3.0.5',
 );
 
-int _routinesEstimateSize(
-  Routines object,
+int _egzersizEstimateSize(
+  Egzersiz object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
   {
-    final value = object.category;
+    final value = object.egzersizBolge;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
   }
   {
-    final value = object.day;
+    final value = object.egzersizSaat;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
   }
   {
-    final value = object.startTime;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
-  {
-    final value = object.title;
+    final value = object.egzersizTitle;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
     }
@@ -85,34 +84,36 @@ int _routinesEstimateSize(
   return bytesCount;
 }
 
-void _routinesSerialize(
-  Routines object,
+void _egzersizSerialize(
+  Egzersiz object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeString(offsets[0], object.category);
-  writer.writeString(offsets[1], object.day);
-  writer.writeString(offsets[2], object.startTime);
-  writer.writeString(offsets[3], object.title);
+  writer.writeString(offsets[0], object.egzersizBolge);
+  writer.writeString(offsets[1], object.egzersizSaat);
+  writer.writeLong(offsets[2], object.egzersizSet);
+  writer.writeLong(offsets[3], object.egzersizTekrar);
+  writer.writeString(offsets[4], object.egzersizTitle);
 }
 
-Routines _routinesDeserialize(
+Egzersiz _egzersizDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = Routines();
-  object.category = reader.readStringOrNull(offsets[0]);
-  object.day = reader.readStringOrNull(offsets[1]);
+  final object = Egzersiz();
+  object.egzersizBolge = reader.readStringOrNull(offsets[0]);
+  object.egzersizSaat = reader.readStringOrNull(offsets[1]);
+  object.egzersizSet = reader.readLongOrNull(offsets[2]);
+  object.egzersizTekrar = reader.readLongOrNull(offsets[3]);
+  object.egzersizTitle = reader.readStringOrNull(offsets[4]);
   object.id = id;
-  object.startTime = reader.readStringOrNull(offsets[2]);
-  object.title = reader.readStringOrNull(offsets[3]);
   return object;
 }
 
-P _routinesDeserializeProp<P>(
+P _egzersizDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -124,36 +125,38 @@ P _routinesDeserializeProp<P>(
     case 1:
       return (reader.readStringOrNull(offset)) as P;
     case 2:
-      return (reader.readStringOrNull(offset)) as P;
+      return (reader.readLongOrNull(offset)) as P;
     case 3:
+      return (reader.readLongOrNull(offset)) as P;
+    case 4:
       return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
 }
 
-Id _routinesGetId(Routines object) {
+Id _egzersizGetId(Egzersiz object) {
   return object.id;
 }
 
-List<IsarLinkBase<dynamic>> _routinesGetLinks(Routines object) {
+List<IsarLinkBase<dynamic>> _egzersizGetLinks(Egzersiz object) {
   return [];
 }
 
-void _routinesAttach(IsarCollection<dynamic> col, Id id, Routines object) {
+void _egzersizAttach(IsarCollection<dynamic> col, Id id, Egzersiz object) {
   object.id = id;
 }
 
-extension RoutinesQueryWhereSort on QueryBuilder<Routines, Routines, QWhere> {
-  QueryBuilder<Routines, Routines, QAfterWhere> anyId() {
+extension EgzersizQueryWhereSort on QueryBuilder<Egzersiz, Egzersiz, QWhere> {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterWhere> anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension RoutinesQueryWhere on QueryBuilder<Routines, Routines, QWhereClause> {
-  QueryBuilder<Routines, Routines, QAfterWhereClause> idEqualTo(Id id) {
+extension EgzersizQueryWhere on QueryBuilder<Egzersiz, Egzersiz, QWhereClause> {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterWhereClause> idEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: id,
@@ -162,7 +165,7 @@ extension RoutinesQueryWhere on QueryBuilder<Routines, Routines, QWhereClause> {
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterWhereClause> idNotEqualTo(Id id) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterWhereClause> idNotEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
         return query
@@ -184,7 +187,7 @@ extension RoutinesQueryWhere on QueryBuilder<Routines, Routines, QWhereClause> {
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterWhereClause> idGreaterThan(Id id,
+  QueryBuilder<Egzersiz, Egzersiz, QAfterWhereClause> idGreaterThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -193,7 +196,7 @@ extension RoutinesQueryWhere on QueryBuilder<Routines, Routines, QWhereClause> {
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterWhereClause> idLessThan(Id id,
+  QueryBuilder<Egzersiz, Egzersiz, QAfterWhereClause> idLessThan(Id id,
       {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
@@ -202,7 +205,7 @@ extension RoutinesQueryWhere on QueryBuilder<Routines, Routines, QWhereClause> {
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterWhereClause> idBetween(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterWhereClause> idBetween(
     Id lowerId,
     Id upperId, {
     bool includeLower = true,
@@ -219,38 +222,41 @@ extension RoutinesQueryWhere on QueryBuilder<Routines, Routines, QWhereClause> {
   }
 }
 
-extension RoutinesQueryFilter
-    on QueryBuilder<Routines, Routines, QFilterCondition> {
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryIsNull() {
+extension EgzersizQueryFilter
+    on QueryBuilder<Egzersiz, Egzersiz, QFilterCondition> {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizBolgeIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'category',
+        property: r'egzersizBolge',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryIsNotNull() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizBolgeIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'category',
+        property: r'egzersizBolge',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryEqualTo(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizBolgeEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'category',
+        property: r'egzersizBolge',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryGreaterThan(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizBolgeGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -258,14 +264,14 @@ extension RoutinesQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'category',
+        property: r'egzersizBolge',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryLessThan(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizBolgeLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -273,14 +279,14 @@ extension RoutinesQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'category',
+        property: r'egzersizBolge',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryBetween(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizBolgeBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -289,7 +295,7 @@ extension RoutinesQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'category',
+        property: r'egzersizBolge',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -299,104 +305,109 @@ extension RoutinesQueryFilter
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryStartsWith(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizBolgeStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'category',
+        property: r'egzersizBolge',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryEndsWith(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizBolgeEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'category',
+        property: r'egzersizBolge',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryContains(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizBolgeContains(
       String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'category',
+        property: r'egzersizBolge',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryMatches(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizBolgeMatches(
       String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'category',
+        property: r'egzersizBolge',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryIsEmpty() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizBolgeIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'category',
+        property: r'egzersizBolge',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> categoryIsNotEmpty() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizBolgeIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'category',
+        property: r'egzersizBolge',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayIsNull() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'day',
+        property: r'egzersizSaat',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayIsNotNull() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSaatIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'day',
+        property: r'egzersizSaat',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayEqualTo(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'day',
+        property: r'egzersizSaat',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayGreaterThan(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSaatGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -404,14 +415,14 @@ extension RoutinesQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'day',
+        property: r'egzersizSaat',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayLessThan(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -419,14 +430,14 @@ extension RoutinesQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'day',
+        property: r'egzersizSaat',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayBetween(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -435,7 +446,7 @@ extension RoutinesQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'day',
+        property: r'egzersizSaat',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -445,75 +456,374 @@ extension RoutinesQueryFilter
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayStartsWith(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSaatStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'day',
+        property: r'egzersizSaat',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayEndsWith(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'day',
+        property: r'egzersizSaat',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayContains(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatContains(
       String value,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'day',
+        property: r'egzersizSaat',
         value: value,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayMatches(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSaatMatches(
       String pattern,
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'day',
+        property: r'egzersizSaat',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayIsEmpty() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSaatIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'day',
+        property: r'egzersizSaat',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> dayIsNotEmpty() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSaatIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'day',
+        property: r'egzersizSaat',
         value: '',
       ));
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> idEqualTo(Id value) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSetIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'egzersizSet',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSetIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'egzersizSet',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSetEqualTo(
+      int? value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'egzersizSet',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizSetGreaterThan(
+    int? value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'egzersizSet',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSetLessThan(
+    int? value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'egzersizSet',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizSetBetween(
+    int? lower,
+    int? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'egzersizSet',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTekrarIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'egzersizTekrar',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTekrarIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'egzersizTekrar',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTekrarEqualTo(
+      int? value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'egzersizTekrar',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTekrarGreaterThan(
+    int? value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'egzersizTekrar',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTekrarLessThan(
+    int? value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'egzersizTekrar',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTekrarBetween(
+    int? lower,
+    int? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'egzersizTekrar',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTitleIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'egzersizTitle',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTitleIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'egzersizTitle',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTitleEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'egzersizTitle',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTitleGreaterThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'egzersizTitle',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTitleLessThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'egzersizTitle',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTitleBetween(
+    String? lower,
+    String? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'egzersizTitle',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTitleStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'egzersizTitle',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTitleEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'egzersizTitle',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTitleContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'egzersizTitle',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> egzersizTitleMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'egzersizTitle',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTitleIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'egzersizTitle',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition>
+      egzersizTitleIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'egzersizTitle',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> idEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'id',
@@ -522,7 +832,7 @@ extension RoutinesQueryFilter
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> idGreaterThan(
     Id value, {
     bool include = false,
   }) {
@@ -535,7 +845,7 @@ extension RoutinesQueryFilter
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> idLessThan(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> idLessThan(
     Id value, {
     bool include = false,
   }) {
@@ -548,7 +858,7 @@ extension RoutinesQueryFilter
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> idBetween(
+  QueryBuilder<Egzersiz, Egzersiz, QAfterFilterCondition> idBetween(
     Id lower,
     Id upper, {
     bool includeLower = true,
@@ -564,480 +874,224 @@ extension RoutinesQueryFilter
       ));
     });
   }
+}
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeIsNull() {
+extension EgzersizQueryObject
+    on QueryBuilder<Egzersiz, Egzersiz, QFilterCondition> {}
+
+extension EgzersizQueryLinks
+    on QueryBuilder<Egzersiz, Egzersiz, QFilterCondition> {}
+
+extension EgzersizQuerySortBy on QueryBuilder<Egzersiz, Egzersiz, QSortBy> {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizBolge() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'startTime',
-      ));
+      return query.addSortBy(r'egzersizBolge', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeIsNotNull() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizBolgeDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'startTime',
-      ));
+      return query.addSortBy(r'egzersizBolge', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizSaat() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'startTime',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizSaat', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizSaatDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'startTime',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizSaat', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizSet() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'startTime',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizSet', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizSetDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'startTime',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizSet', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizTekrar() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'startTime',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizTekrar', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizTekrarDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'startTime',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizTekrar', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeContains(
-      String value,
-      {bool caseSensitive = true}) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizTitle() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'startTime',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addSortBy(r'egzersizTitle', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> sortByEgzersizTitleDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'startTime',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> startTimeIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'startTime',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition>
-      startTimeIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'startTime',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'title',
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'title',
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'title',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'title',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'title',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'title',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'title',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'title',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'title',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'title',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'title',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterFilterCondition> titleIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'title',
-        value: '',
-      ));
+      return query.addSortBy(r'egzersizTitle', Sort.desc);
     });
   }
 }
 
-extension RoutinesQueryObject
-    on QueryBuilder<Routines, Routines, QFilterCondition> {}
-
-extension RoutinesQueryLinks
-    on QueryBuilder<Routines, Routines, QFilterCondition> {}
-
-extension RoutinesQuerySortBy on QueryBuilder<Routines, Routines, QSortBy> {
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByCategory() {
+extension EgzersizQuerySortThenBy
+    on QueryBuilder<Egzersiz, Egzersiz, QSortThenBy> {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizBolge() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'category', Sort.asc);
+      return query.addSortBy(r'egzersizBolge', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByCategoryDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizBolgeDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'category', Sort.desc);
+      return query.addSortBy(r'egzersizBolge', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByDay() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizSaat() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'day', Sort.asc);
+      return query.addSortBy(r'egzersizSaat', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByDayDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizSaatDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'day', Sort.desc);
+      return query.addSortBy(r'egzersizSaat', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByStartTime() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizSet() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'startTime', Sort.asc);
+      return query.addSortBy(r'egzersizSet', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByStartTimeDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizSetDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'startTime', Sort.desc);
+      return query.addSortBy(r'egzersizSet', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByTitle() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizTekrar() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'title', Sort.asc);
+      return query.addSortBy(r'egzersizTekrar', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> sortByTitleDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizTekrarDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'title', Sort.desc);
-    });
-  }
-}
-
-extension RoutinesQuerySortThenBy
-    on QueryBuilder<Routines, Routines, QSortThenBy> {
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByCategory() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'category', Sort.asc);
+      return query.addSortBy(r'egzersizTekrar', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByCategoryDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizTitle() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'category', Sort.desc);
+      return query.addSortBy(r'egzersizTitle', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByDay() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByEgzersizTitleDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'day', Sort.asc);
+      return query.addSortBy(r'egzersizTitle', Sort.desc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByDayDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'day', Sort.desc);
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenById() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByIdDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
+}
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByStartTime() {
+extension EgzersizQueryWhereDistinct
+    on QueryBuilder<Egzersiz, Egzersiz, QDistinct> {
+  QueryBuilder<Egzersiz, Egzersiz, QDistinct> distinctByEgzersizBolge(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'startTime', Sort.asc);
+      return query.addDistinctBy(r'egzersizBolge',
+          caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByStartTimeDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QDistinct> distinctByEgzersizSaat(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'startTime', Sort.desc);
+      return query.addDistinctBy(r'egzersizSaat', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByTitle() {
+  QueryBuilder<Egzersiz, Egzersiz, QDistinct> distinctByEgzersizSet() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'title', Sort.asc);
+      return query.addDistinctBy(r'egzersizSet');
     });
   }
 
-  QueryBuilder<Routines, Routines, QAfterSortBy> thenByTitleDesc() {
+  QueryBuilder<Egzersiz, Egzersiz, QDistinct> distinctByEgzersizTekrar() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'title', Sort.desc);
+      return query.addDistinctBy(r'egzersizTekrar');
+    });
+  }
+
+  QueryBuilder<Egzersiz, Egzersiz, QDistinct> distinctByEgzersizTitle(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'egzersizTitle',
+          caseSensitive: caseSensitive);
     });
   }
 }
 
-extension RoutinesQueryWhereDistinct
-    on QueryBuilder<Routines, Routines, QDistinct> {
-  QueryBuilder<Routines, Routines, QDistinct> distinctByCategory(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'category', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QDistinct> distinctByDay(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'day', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QDistinct> distinctByStartTime(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'startTime', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Routines, Routines, QDistinct> distinctByTitle(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'title', caseSensitive: caseSensitive);
-    });
-  }
-}
-
-extension RoutinesQueryProperty
-    on QueryBuilder<Routines, Routines, QQueryProperty> {
-  QueryBuilder<Routines, int, QQueryOperations> idProperty() {
+extension EgzersizQueryProperty
+    on QueryBuilder<Egzersiz, Egzersiz, QQueryProperty> {
+  QueryBuilder<Egzersiz, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
     });
   }
 
-  QueryBuilder<Routines, String?, QQueryOperations> categoryProperty() {
+  QueryBuilder<Egzersiz, String?, QQueryOperations> egzersizBolgeProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'category');
+      return query.addPropertyName(r'egzersizBolge');
     });
   }
 
-  QueryBuilder<Routines, String?, QQueryOperations> dayProperty() {
+  QueryBuilder<Egzersiz, String?, QQueryOperations> egzersizSaatProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'day');
+      return query.addPropertyName(r'egzersizSaat');
     });
   }
 
-  QueryBuilder<Routines, String?, QQueryOperations> startTimeProperty() {
+  QueryBuilder<Egzersiz, int?, QQueryOperations> egzersizSetProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'startTime');
+      return query.addPropertyName(r'egzersizSet');
     });
   }
 
-  QueryBuilder<Routines, String?, QQueryOperations> titleProperty() {
+  QueryBuilder<Egzersiz, int?, QQueryOperations> egzersizTekrarProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'title');
+      return query.addPropertyName(r'egzersizTekrar');
+    });
+  }
+
+  QueryBuilder<Egzersiz, String?, QQueryOperations> egzersizTitleProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'egzersizTitle');
     });
   }
 }

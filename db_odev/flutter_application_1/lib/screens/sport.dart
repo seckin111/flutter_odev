@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/db/egzersiz.dart';
 import 'package:isar/isar.dart';
 import 'package:provider/provider.dart';
 
-import '../db/routines.dart';
-
-class Create extends StatefulWidget {
-  const Create({Key? key}) : super(key: key);
+class Sport extends StatefulWidget {
+  const Sport({Key? key}) : super(key: key);
 
   @override
-  State<Create> createState() => _CreateState();
+  State<Sport> createState() => _CreateState();
 }
 
-class _CreateState extends State<Create> {
+class _CreateState extends State<Sport> {
   late Isar isar;
   @override
   void initState() {
@@ -19,31 +18,24 @@ class _CreateState extends State<Create> {
     isar = Provider.of<Isar>(context, listen: false);
   }
 
-  List<String> categories = ['work', 'school', 'home'];
-  String dropdownValue = 'work';
+  List<String> egzersizBolge = ['gogus', 'kol', 'bacak'];
+  String dropdownValue = 'gogus';
   final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _tekrarController = TextEditingController();
+  final TextEditingController _setController = TextEditingController();
   final TextEditingController _timeController = TextEditingController();
   final TextEditingController _newCatController = TextEditingController();
-  List<String> days = [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday"
-  ];
-  String dropdownDay = "monday";
+
   TimeOfDay selectedTime = TimeOfDay.now();
 
-  adItemToDatabase(
-      String title, String category, String startTime, String day) async {
-    final newRoutine = Routines()
-      ..title = title
-      ..category = category
-      ..startTime = startTime
-      ..day = day;
-    isar.writeTxn(() => isar.routines.put(newRoutine));
+  adItemToDatabase(String egzersizTitle, String egzersizCategory,
+      int egzersizTekrar, int egzersizSet) async {
+    final newEgzersiz = Egzersiz()
+      ..egzersizTitle = egzersizTitle
+      ..egzersizBolge = egzersizCategory
+      ..egzersizTekrar = egzersizTekrar
+      ..egzersizSet = egzersizSet;
+    isar.writeTxn(() => isar.egzersizs.put(newEgzersiz));
   }
 
   @override
@@ -51,7 +43,7 @@ class _CreateState extends State<Create> {
     return Scaffold(
       backgroundColor: const Color(0xffffffff),
       appBar: AppBar(
-        title: const Text("Add routine"),
+        title: const Text("Add Sport"),
         backgroundColor: Color.fromARGB(255, 158, 219, 205),
       ),
       body: SingleChildScrollView(
@@ -74,7 +66,7 @@ class _CreateState extends State<Create> {
                     isExpanded: true,
                     value: dropdownValue,
                     icon: const Icon(Icons.keyboard_arrow_down),
-                    items: categories
+                    items: egzersizBolge
                         .map<DropdownMenuItem<String>>((String nvalue) {
                       return DropdownMenuItem<String>(
                           value: nvalue, child: Text(nvalue));
@@ -91,18 +83,18 @@ class _CreateState extends State<Create> {
                       showDialog(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
-                                title: const Text("New Category"),
+                                title: const Text("Bolge ekle"),
                                 content: TextFormField(
                                     controller: _newCatController),
                                 actions: [
                                   ElevatedButton(
                                       onPressed: () {
-                                        String newCategory =
+                                        String newBolge =
                                             _newCatController.text.trim();
-                                        if (newCategory.isNotEmpty) {
+                                        if (newBolge.isNotEmpty) {
                                           setState(() {
-                                            categories.add(newCategory);
-                                            dropdownValue = newCategory;
+                                            egzersizBolge.add(newBolge);
+                                            dropdownValue = newBolge;
                                           });
                                           Navigator.of(context).pop();
                                         }
@@ -124,47 +116,19 @@ class _CreateState extends State<Create> {
             ),
             const Padding(
               padding: EdgeInsets.only(top: 10.0),
-              child: Text("Start Time",
+              child: Text("Kaç Tekrar",
                   style: TextStyle(fontWeight: FontWeight.bold)),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.7,
-                  child: TextFormField(
-                    controller: _timeController,
-                    enabled: false,
-                  ),
-                ),
-                IconButton(
-                    onPressed: () {
-                      _selectedTime(context);
-                    },
-                    icon: const Icon(Icons.punch_clock_outlined))
-              ],
+            TextFormField(
+              controller: _tekrarController,
             ),
             const Padding(
               padding: EdgeInsets.only(top: 10.0),
-              child: Text("Day", style: TextStyle(fontWeight: FontWeight.bold)),
+              child: Text("Kaç set?",
+                  style: TextStyle(fontWeight: FontWeight.bold)),
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.7,
-              child: DropdownButton(
-                focusColor: Color.fromARGB(255, 255, 255, 255),
-                dropdownColor: Color.fromARGB(255, 180, 255, 237),
-                isExpanded: true,
-                value: dropdownDay,
-                icon: const Icon(Icons.keyboard_arrow_down),
-                items: days.map<DropdownMenuItem<String>>((String day) {
-                  return DropdownMenuItem<String>(value: day, child: Text(day));
-                }).toList(),
-                onChanged: (String? newDay) {
-                  setState(() {
-                    dropdownDay = newDay!;
-                  });
-                },
-              ),
+            TextFormField(
+              controller: _setController,
             ),
             SizedBox(
               height: 30.0,
@@ -176,11 +140,12 @@ class _CreateState extends State<Create> {
                   primary: Color.fromARGB(255, 158, 219, 205),
                 ),
                 onPressed: () {
-                  String title = _titleController.text.trim();
-                  String category = dropdownValue;
-                  String startTime = _timeController.text.trim();
-                  String day = dropdownDay;
-                  adItemToDatabase(title, category, startTime, day);
+                  String egzersizTitle = _titleController.text.trim();
+                  String egzersizCategory = dropdownValue;
+                  int egzersizTekrar = int.parse(_tekrarController.text.trim());
+                  int egzersizSet = int.parse(_setController.text.trim());
+                  adItemToDatabase(egzersizTitle, egzersizCategory,
+                      egzersizTekrar, egzersizSet);
                   Navigator.of(context).pop();
                 },
                 child: const Text("Add"),
@@ -190,20 +155,5 @@ class _CreateState extends State<Create> {
         ),
       ),
     );
-  }
-
-  _selectedTime(BuildContext context) async {
-    final TimeOfDay? timeOfDay = await showTimePicker(
-        context: context,
-        initialTime: selectedTime,
-        initialEntryMode: TimePickerEntryMode.dial);
-
-    if (timeOfDay != null && timeOfDay != selectedTime) {
-      selectedTime = timeOfDay;
-      setState(() {
-        _timeController.text =
-            "${selectedTime.hour}:${selectedTime.minute} ${selectedTime.period.name}";
-      });
-    }
   }
 }
